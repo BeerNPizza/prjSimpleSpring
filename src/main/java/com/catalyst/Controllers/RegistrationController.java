@@ -1,6 +1,7 @@
 package com.catalyst.Controllers;
 
 import com.catalyst.Config.Global;
+import com.catalyst.User.Model.Pet;
 import com.catalyst.User.Model.Procedure;
 import com.catalyst.User.Model.User;
 import com.catalyst.User.Service.PetService;
@@ -45,6 +46,23 @@ public class RegistrationController
         this.hUserService.addByEntity(hUser);   // Add User To Database
         
         return "redirect:/Admin/Clients";
+    }
+    
+    /*
+        This Method Handles Registration Of New Patients
+    */
+    @RequestMapping(value = { "/Register/Patient" }, method = RequestMethod.POST)
+    public String Register_POST_Patient(ModelMap DInjMap,
+            @ModelAttribute("Pet") Pet hPet,
+            @RequestParam(value = "UserID") int UserID,
+            HttpServletResponse hResponse)
+    {
+        
+        hPet.setUserInPet(this.hUserService.findByID(UserID));
+        
+        this.hPetService.addByEntity(hPet);
+
+        return "redirect:/Admin/Patients";
     }
     
     /*

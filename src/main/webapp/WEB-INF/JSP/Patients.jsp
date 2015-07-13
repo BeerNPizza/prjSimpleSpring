@@ -12,6 +12,11 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="<c:url value="/Resources/Images/Favico.png" />">
     <link rel="stylesheet" type="text/css" href="<c:url value="/Resources/CSS/Templatemo_Main.css" />" >
+    
+    <!-- JQuery Calandar -->
+    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    
+    <link rel="stylesheet" type="text/css" href="<c:url value="/Resources/CSS/DateTimePicker.css" />" />
 </head>
 <body>
   <div class="navbar navbar-inverse" role="navigation">
@@ -53,7 +58,7 @@
             <div class="row">
               <div class="col-md-12">
                 <ul class="nav nav-pills">
-                    <li class="active"><a href="javascript:;" data-toggle="modal" data-target="#CreatePatientModal"><i class="fa fa-plus"></i> Add Patient <small>(Not Done)</small></a></li>
+                    <li class="active"><a href="javascript:;" data-toggle="modal" data-target="#CreatePatientModal"><i class="fa fa-plus"></i> Add Patient</a></li>
                     <li class="active"><a href="javascript:;" data-toggle="modal" data-target="#CreateProcedureModal"><i class="fa fa-plus"></i> Add Procedure</a></li>
                 </ul>          
               </div>
@@ -193,7 +198,7 @@
                     </div>
 
                     <div class="col-sm-4">
-                        <select name="Type" class="form-control">
+                        <select name="Age" class="form-control">
                             <option value="" disabled selected>Age (Years)</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -232,7 +237,7 @@
               <div class="form-group">
                 <label class="col-sm-2 control-label" for="textinput">Owner</label>
                 <div class="col-sm-10">
-                    <select name="Type" class="form-control">
+                    <select name="UserID" class="form-control">
                         <c:forEach items="${listUsers}" var="user">
                             <option value="${user.ID}">${user.firstname} ${user.lastname} (${user.email})</option>
                         </c:forEach> 
@@ -268,7 +273,7 @@
                 <div class="col-sm-10">
                     <select name="PetID" class="form-control">
                         <c:forEach items="${listPets}" var="pet">
-                            <option value="${pet.ID}">${pet.name} ${pet.type} ${pet.breed} (${pet.userInPet.firstname} ${pet.userInPet.lastname})</option>
+                            <option value="${pet.ID}">${pet.name} (${pet.type}-${pet.breed}) (${pet.userInPet.firstname} ${pet.userInPet.lastname})</option>
                         </c:forEach> 
                     </select>
                 </div>
@@ -294,13 +299,13 @@
               <div class="form-group">
                     
                     <label class="col-sm-2 control-label" for="textinput">Cost</label>
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <input type="text" name="ProcedureCost" placeholder="Cost Of The Procedure" class="form-control">
                     </div>
                     
-                    <label class="col-sm-2 control-label" for="textinput">Date/Time</label>
                     <div class="col-sm-4">
-                        <input type="text" name="ProcedureDate" placeholder="Timestamp Of The Procedure" class="form-control">
+                        <input type="text" name="ProcedureDate" data-field="datetime" readonly placeholder="Time/Date" class="form-control">
+                        <div id="dtBox"></div>
                     </div>
                     
                     
@@ -330,7 +335,25 @@
     <script src="<c:url value="/Resources/JS/Bootstrap.min.js" />"></script>
     <script src="<c:url value="/Resources/JS/Templatemo_Script.js" />"></script>
     
+    
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script type="text/javascript" src="<c:url value="/Resources/JS/DateTimePicker.js" />"></script>
+    
     <script type="text/javascript">
+    /*
+     * JQuery Date Picker
+     */
+    $(function()
+    {
+        $( "#datepicker" ).datepicker();
+    });
+    
+    $(document).ready(function()
+    {
+        $("#dtBox").DateTimePicker();
+    });
+
+    
     /*
      *  JQuery Function To Submit A Search After Pressing Enter In Search Box
      */
