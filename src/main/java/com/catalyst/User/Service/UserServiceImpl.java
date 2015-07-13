@@ -1,10 +1,9 @@
 package com.catalyst.User.Service;
 
+import java.util.List;
 import com.catalyst.User.Model.User;
 import com.catalyst.User.DAO.UserDAO;
 import com.catalyst.User.DAO.GenericDAO;
-import java.util.List;
-import java.util.Set;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

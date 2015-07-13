@@ -14,8 +14,7 @@
     <link rel="stylesheet" type="text/css" href="<c:url value="/Resources/CSS/Templatemo_Main.css" />" >
     
     <!-- JQuery Calandar -->
-    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-    
+    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">    
     <link rel="stylesheet" type="text/css" href="<c:url value="/Resources/CSS/DateTimePicker.css" />" />
 </head>
 <body>
@@ -273,7 +272,7 @@
                 <div class="col-sm-10">
                     <select name="PetID" class="form-control">
                         <c:forEach items="${listPets}" var="pet">
-                            <option value="${pet.ID}">${pet.name} (${pet.type}-${pet.breed}) (${pet.userInPet.firstname} ${pet.userInPet.lastname})</option>
+                            <option value="${pet.ID}">${pet.name} (${pet.type}/${pet.breed}) (${pet.userInPet.firstname} ${pet.userInPet.lastname})</option>
                         </c:forEach> 
                     </select>
                 </div>
@@ -335,7 +334,7 @@
     <script src="<c:url value="/Resources/JS/Bootstrap.min.js" />"></script>
     <script src="<c:url value="/Resources/JS/Templatemo_Script.js" />"></script>
     
-    
+    <!-- JQuery Calendar -->
     <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script type="text/javascript" src="<c:url value="/Resources/JS/DateTimePicker.js" />"></script>
     

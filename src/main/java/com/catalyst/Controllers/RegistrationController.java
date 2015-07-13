@@ -1,6 +1,5 @@
 package com.catalyst.Controllers;
 
-import com.catalyst.Config.Global;
 import com.catalyst.User.Model.Pet;
 import com.catalyst.User.Model.Procedure;
 import com.catalyst.User.Model.User;
@@ -58,6 +57,7 @@ public class RegistrationController
             HttpServletResponse hResponse)
     {
         
+        // Wish I could do this in a cooler way
         hPet.setUserInPet(this.hUserService.findByID(UserID));
         
         this.hPetService.addByEntity(hPet);
