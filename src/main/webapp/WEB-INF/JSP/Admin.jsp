@@ -31,7 +31,7 @@
           <li class="active"><a href="${pageContext.request.contextPath}/Admin"><i class="fa fa-home"></i>Home</a></li>
           <li><a href="${pageContext.request.contextPath}/Admin/Clients"><i class="fa fa-users"></i><span class="badge pull-right">57</span> Clients</a></li>
           <li><a href="${pageContext.request.contextPath}/Admin/Patients"><i class="fa fa-paw"></i><span class="badge pull-right">63</span> Patients</a></li>
-          <li><a href="${pageContext.request.contextPath}/#"><i class="fa fa-calendar"></i><span class="badge pull-right">9</span> Appointments</a></li>
+          <li><a href="${pageContext.request.contextPath}/Admin/Appointments"><i class="fa fa-calendar"></i><span class="badge pull-right">9</span> Appointments</a></li>
           <li><a href="${pageContext.request.contextPath}/#"><i class="fa fa-book"></i><span class="badge pull-right">42</span> Inventory</a></li>
           <li><a href="${pageContext.request.contextPath}/Admin/Invoices"><i class="fa fa-credit-card"></i><span class="badge pull-right">12</span> Invoices</a></li>
           <li><a href="${pageContext.request.contextPath}/#"><i class="fa fa-cog"></i>Preferences</a></li>
@@ -85,7 +85,7 @@
               
       <footer class="templatemo-footer">
         <div class="templatemo-copyright">
-          <p>Copyright &copy; 2014 Val's Vet Office</p>
+          <p>Copyright &copy; 2015 Val's Vet Office</p>
         </div>
       </footer>
     </div>

@@ -4,16 +4,17 @@
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8">
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
     <title>${PageTitle}</title>
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width">
+    
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="<c:url value="/Resources/Images/Favico.png" />">
     <link rel="stylesheet" type="text/css" href="<c:url value="/Resources/CSS/Templatemo_Main.css" />" >
     
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-formhelpers/2.3.0/css/bootstrap-formhelpers.css" >
+    <!-- Country Flags -->
+    <link rel="stylesheet" type="text/css" href="<c:url value="/Resources/CSS/Bootstrap-Formhelpers.css" />" >
 </head>
 <body>
   <div class="navbar navbar-inverse" role="navigation">
@@ -33,7 +34,7 @@
           <li><a href="${pageContext.request.contextPath}/Admin"><i class="fa fa-home"></i>Home</a></li>
           <li class="active"><a href="${pageContext.request.contextPath}/Admin/Clients"><i class="fa fa-users"></i><span class="badge pull-right">57</span> Clients</a></li>
           <li><a href="${pageContext.request.contextPath}/Admin/Patients"><i class="fa fa-paw"></i><span class="badge pull-right">63</span> Patients</a></li>
-          <li><a href="${pageContext.request.contextPath}/#"><i class="fa fa-calendar"></i><span class="badge pull-right">9</span> Appointments</a></li>
+          <li><a href="${pageContext.request.contextPath}/Admin/Appointments"><i class="fa fa-calendar"></i><span class="badge pull-right">9</span> Appointments</a></li>
           <li><a href="${pageContext.request.contextPath}/#"><i class="fa fa-book"></i><span class="badge pull-right">42</span> Inventory</a></li>
           <li><a href="${pageContext.request.contextPath}/Admin/Invoices"><i class="fa fa-credit-card"></i><span class="badge pull-right">12</span> Invoices</a></li>
           <li><a href="${pageContext.request.contextPath}/#"><i class="fa fa-cog"></i>Preferences</a></li>
@@ -313,7 +314,7 @@
               
       <footer class="templatemo-footer">
         <div class="templatemo-copyright">
-          <p>Copyright &copy; 2014 Val's Vet Office</p>
+          <p>Copyright &copy; 2015 Val's Vet Office</p>
         </div>
       </footer>
     </div>
@@ -322,10 +323,12 @@
     <script src="<c:url value="/Resources/JS/JQuery.min.js" />"></script>
     <script src="<c:url value="/Resources/JS/Bootstrap.min.js" />"></script>
     <script src="<c:url value="/Resources/JS/Templatemo_Script.js" />"></script>
+    
     <!-- Form Helper JQuery Plugin For Country Flags -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-formhelpers/2.3.0/js/bootstrap-formhelpers.js"></script>
+    <script src="<c:url value="/Resources/JS/Bootstrap.Formhelpers.js" />"></script>
+    
     <!-- Input Validator JQuery Plugin For Input Validation -->
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.js"></script>
+    <script src="<c:url value="/Resources/JS/JQuery.Validate.js" />"></script>
     
     <!-- Used For Searching -->
     <script type="text/javascript">

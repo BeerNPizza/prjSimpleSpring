@@ -4,17 +4,18 @@
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8">
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
     <title>${PageTitle}</title>
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width">
+    
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="<c:url value="/Resources/Images/Favico.png" />">
+    
+    <!-- Theme Style -->
     <link rel="stylesheet" type="text/css" href="<c:url value="/Resources/CSS/Templatemo_Main.css" />" >
     
-    <!-- JQuery Calandar -->
-    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">    
+    <!-- JQuery Calendar -->
     <link rel="stylesheet" type="text/css" href="<c:url value="/Resources/CSS/DateTimePicker.css" />" />
 </head>
 <body>
@@ -35,7 +36,7 @@
           <li><a href="${pageContext.request.contextPath}/Admin"><i class="fa fa-home"></i>Home</a></li>
           <li><a href="${pageContext.request.contextPath}/Admin/Clients"><i class="fa fa-users"></i><span class="badge pull-right">57</span> Clients</a></li>
           <li class="active"><a href="${pageContext.request.contextPath}/Admin/Patients"><i class="fa fa-paw"></i><span class="badge pull-right">63</span> Patients</a></li>
-          <li><a href="${pageContext.request.contextPath}/#"><i class="fa fa-calendar"></i><span class="badge pull-right">9</span> Appointments</a></li>
+          <li><a href="${pageContext.request.contextPath}/Admin/Appointments"><i class="fa fa-calendar"></i><span class="badge pull-right">9</span> Appointments</a></li>
           <li><a href="${pageContext.request.contextPath}/#"><i class="fa fa-book"></i><span class="badge pull-right">42</span> Inventory</a></li>
           <li><a href="${pageContext.request.contextPath}/Admin/Invoices"><i class="fa fa-credit-card"></i><span class="badge pull-right">12</span> Invoices</a></li>
           <li><a href="${pageContext.request.contextPath}/#"><i class="fa fa-cog"></i>Preferences</a></li>
@@ -57,8 +58,8 @@
             <div class="row">
               <div class="col-md-12">
                 <ul class="nav nav-pills">
-                    <li class="active"><a href="javascript:;" data-toggle="modal" data-target="#CreatePatientModal"><i class="fa fa-plus"></i> Add Patient</a></li>
-                    <li class="active"><a href="javascript:;" data-toggle="modal" data-target="#CreateProcedureModal"><i class="fa fa-plus"></i> Add Procedure</a></li>
+                    <li class="active"><a href="#" onclick="$('#CreatePatientModal').modal('show')"><i class="fa fa-plus"></i> Add Patient</a></li>
+                    <li class="active"><a href="#" onclick="$('#CreateProcedureModal').modal('show')"><i class="fa fa-plus"></i> Add Procedure</a></li>
                 </ul>          
               </div>
             </div>
@@ -268,8 +269,7 @@
             <fieldset>
 
                <div class="form-group">
-                <label class="col-sm-2 control-label" for="textinput">Patient</label>
-                <div class="col-sm-10">
+                <div class="col-sm-12">
                     <select name="PetID" class="form-control">
                         <c:forEach items="${listPets}" var="pet">
                             <option value="${pet.ID}">${pet.name} (${pet.type}/${pet.breed}) (${pet.userInPet.firstname} ${pet.userInPet.lastname})</option>
@@ -280,29 +280,23 @@
 
               <!-- Text input-->
                 <div class="form-group">		
-                    <label class="col-sm-2 control-label" for="textinput">Name</label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-12">
                         <input type="text" name="ProcedureName" placeholder="Procedure Name" class="form-control">
                     </div>
 		</div>
-                
-                <div class="form-group">
-                    
-                    <label class="col-sm-2 control-label" for="textinput">Description</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="ProcedureDescription" placeholder="Description Of The Procedure" class="form-control">
+
+              <div class="form-group">
+                    <div class="col-sm-12">
+                       <textarea class="form-control" rows="5" placeholder="Description Of The Procedure" name="ProcedureDescription" id="ProcedureDescription"></textarea>
                     </div>
-                    
                 </div>
               
               <div class="form-group">
-                    
-                    <label class="col-sm-2 control-label" for="textinput">Cost</label>
                     <div class="col-sm-6">
-                        <input type="text" name="ProcedureCost" placeholder="Cost Of The Procedure" class="form-control">
+                        <input type="text" name="ProcedureCost" placeholder="Cost Of The Procedure ($)" class="form-control">
                     </div>
                     
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <input type="text" name="ProcedureDate" data-field="datetime" readonly placeholder="Time/Date" class="form-control">
                         <div id="dtBox"></div>
                     </div>
@@ -335,8 +329,8 @@
     <script src="<c:url value="/Resources/JS/Templatemo_Script.js" />"></script>
     
     <!-- JQuery Calendar -->
-    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    <script type="text/javascript" src="<c:url value="/Resources/JS/DateTimePicker.js" />"></script>
+    <script src="<c:url value="/Resources/JS/JQuery.UI.js" />"></script>
+    <script src="<c:url value="/Resources/JS/DateTimePicker.js" />"></script>
     
     <script type="text/javascript">
     /*
