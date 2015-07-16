@@ -34,21 +34,21 @@
       <div class="navbar-collapse collapse templatemo-sidebar">
         <ul class="templatemo-sidebar-menu">
           <li><a href="${pageContext.request.contextPath}/Admin"><i class="fa fa-home"></i>Home</a></li>
-          <li><a href="${pageContext.request.contextPath}/Admin/Clients"><i class="fa fa-users"></i><span class="badge pull-right">57</span> Clients</a></li>
-          <li class="active"><a href="${pageContext.request.contextPath}/Admin/Patients"><i class="fa fa-paw"></i><span class="badge pull-right">63</span> Patients</a></li>
-          <li><a href="${pageContext.request.contextPath}/Admin/Appointments"><i class="fa fa-calendar"></i><span class="badge pull-right">9</span> Appointments</a></li>
-          <li><a href="${pageContext.request.contextPath}/#"><i class="fa fa-book"></i><span class="badge pull-right">42</span> Inventory</a></li>
-          <li><a href="${pageContext.request.contextPath}/Admin/Invoices"><i class="fa fa-credit-card"></i><span class="badge pull-right">12</span> Invoices</a></li>
-          <li><a href="${pageContext.request.contextPath}/#"><i class="fa fa-cog"></i>Preferences</a></li>
-          <li><a href="javascript:;" data-toggle="modal" data-target="#confirmLogoutModal"><i class="fa fa-sign-out"></i>Sign Out</a></li>
+          <li><a href="${pageContext.request.contextPath}/Admin/Clients"><i class="fa fa-users"></i>Clients</a></li>
+          <li class="active"><a href="${pageContext.request.contextPath}/Admin/Patients"><i class="fa fa-paw"></i>Patients</a></li>
+          <li><a href="${pageContext.request.contextPath}/Admin/Appointments"><i class="fa fa-calendar"></i>Appointments</a></li>
+          <li><a href="${pageContext.request.contextPath}/Admin/#"><i class="fa fa-book"></i>Inventory <small>(Disabled)</small></a></li>
+          <li><a href="${pageContext.request.contextPath}/Admin/#"><i class="fa fa-credit-card"></i>Invoices <small>(Disabled)</small></a></li>
+          <li><a href="${pageContext.request.contextPath}/Admin/#"><i class="fa fa-cog"></i>Preferences <small>(Disabled)</small></a></li>
+          <li><a href="#" onclick="$('#confirmLogoutModal').modal('show')"><i class="fa fa-sign-out"></i>Sign Out</a></li>
         </ul>
       </div><!--/.navbar-collapse -->
 
       <div class="templatemo-content-wrapper">
         <div class="templatemo-content">
           <ol class="breadcrumb">
-            <li><a href="Admin">Admin Panel</a></li>
-            <li><a href="#">Dashboard</a></li>
+            <li><a href="${pageContext.request.contextPath}/Admin">Admin Panel</a></li>
+            <li><a href="${pageContext.request.contextPath}/Admin">Dashboard</a></li>
             <li class="active">Patients</li>
           </ol>
           <h1>Patients</h1>

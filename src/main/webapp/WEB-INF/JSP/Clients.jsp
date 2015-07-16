@@ -15,6 +15,13 @@
     
     <!-- Country Flags -->
     <link rel="stylesheet" type="text/css" href="<c:url value="/Resources/CSS/Bootstrap-Formhelpers.css" />" >
+    
+<script>
+    $(document).ready(function()
+    {
+        $('.bfh-selectbox').attr('disabled',true);
+    });
+</script>
 </head>
 <body>
   <div class="navbar navbar-inverse" role="navigation">
@@ -32,21 +39,21 @@
       <div class="navbar-collapse collapse templatemo-sidebar">
         <ul class="templatemo-sidebar-menu">
           <li><a href="${pageContext.request.contextPath}/Admin"><i class="fa fa-home"></i>Home</a></li>
-          <li class="active"><a href="${pageContext.request.contextPath}/Admin/Clients"><i class="fa fa-users"></i><span class="badge pull-right">57</span> Clients</a></li>
-          <li><a href="${pageContext.request.contextPath}/Admin/Patients"><i class="fa fa-paw"></i><span class="badge pull-right">63</span> Patients</a></li>
-          <li><a href="${pageContext.request.contextPath}/Admin/Appointments"><i class="fa fa-calendar"></i><span class="badge pull-right">9</span> Appointments</a></li>
-          <li><a href="${pageContext.request.contextPath}/#"><i class="fa fa-book"></i><span class="badge pull-right">42</span> Inventory</a></li>
-          <li><a href="${pageContext.request.contextPath}/Admin/Invoices"><i class="fa fa-credit-card"></i><span class="badge pull-right">12</span> Invoices</a></li>
-          <li><a href="${pageContext.request.contextPath}/#"><i class="fa fa-cog"></i>Preferences</a></li>
-          <li><a href="javascript:;" data-toggle="modal" data-target="#confirmLogoutModal"><i class="fa fa-sign-out"></i>Sign Out</a></li>
+          <li class="active"><a href="${pageContext.request.contextPath}/Admin/Clients"><i class="fa fa-users"></i>Clients</a></li>
+          <li><a href="${pageContext.request.contextPath}/Admin/Patients"><i class="fa fa-paw"></i>Patients</a></li>
+          <li><a href="${pageContext.request.contextPath}/Admin/Appointments"><i class="fa fa-calendar"></i>Appointments</a></li>
+          <li><a href="${pageContext.request.contextPath}/Admin/#"><i class="fa fa-book"></i>Inventory <small>(Disabled)</small></a></li>
+          <li><a href="${pageContext.request.contextPath}/Admin/#"><i class="fa fa-credit-card"></i>Invoices <small>(Disabled)</small></a></li>
+          <li><a href="${pageContext.request.contextPath}/Admin/#"><i class="fa fa-cog"></i>Preferences <small>(Disabled)</small></a></li>
+          <li><a href="#" onclick="$('#confirmLogoutModal').modal('show')"><i class="fa fa-sign-out"></i>Sign Out</a></li>
         </ul>
       </div><!--/.navbar-collapse -->
 
       <div class="templatemo-content-wrapper">
         <div class="templatemo-content">
           <ol class="breadcrumb">
-            <li><a href="Admin">Admin Panel</a></li>
-            <li><a href="#">Dashboard</a></li>
+            <li><a href="${pageContext.request.contextPath}/Admin">Admin Panel</a></li>
+            <li><a href="${pageContext.request.contextPath}/Admin">Dashboard</a></li>
             <li class="active">Clients</li>
           </ol>
           <h1>Clients</h1>
@@ -195,7 +202,7 @@
                         <div id="countries_states2" class="bfh-selectbox bfh-countries" data-country="US" data-flags="true">
                             <input name="Country" type="hidden" value="">
                             <a class="bfh-selectbox-toggle" role="button" data-toggle="bfh-selectbox" href="#">
-                                <span class="bfh-selectbox-option input-medium" data-option=""></span>
+                                <span class="bfh-selectbox-option input-medium readonly" data-option=""></span>
                                 <b class="caret"></b>
                             </a>
                             <div class="bfh-selectbox-options">

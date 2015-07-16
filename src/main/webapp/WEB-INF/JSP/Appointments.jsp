@@ -44,6 +44,7 @@
                     $("#EventDescription").val("");
                     $("#DateTime").val("");
                     $("#SearchInput").val("");
+                    $("#result-container").html("");
                     $('#CreateEventModal').modal('show');
 //                  alert('Clicked on: ' + date.format("D-MM-YYYY"));
 //                  alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
@@ -55,12 +56,12 @@
                 {
                 //    event.title = "CLICKED!";
                 //    $('#calendar').fullCalendar('updateEvent', event);
-                // EventModal
                     $("#EventModal").html("<i class='fa fa-user'></i> Edit An Event");
                     $("#EventTitle").val(event.title);
                     $("#EventDescription").val(event.description);
                     $("#DateTime").val(moment(event.start).format('D-MM-YYYY h:mm'));
                     $("#SearchInput").val("");
+                    $("#result-container").html("");
                     $('#CreateEventModal').modal('show');
                 },
 		header:
@@ -156,21 +157,21 @@
       <div class="navbar-collapse collapse templatemo-sidebar">
         <ul class="templatemo-sidebar-menu">
           <li><a href="${pageContext.request.contextPath}/Admin"><i class="fa fa-home"></i>Home</a></li>
-          <li><a href="${pageContext.request.contextPath}/Admin/Clients"><i class="fa fa-users"></i><span class="badge pull-right">57</span> Clients</a></li>
-          <li><a href="${pageContext.request.contextPath}/Admin/Patients"><i class="fa fa-paw"></i><span class="badge pull-right">63</span> Patients</a></li>
-          <li class="active"><a href="${pageContext.request.contextPath}/Admin/Appointments"><i class="fa fa-calendar"></i><span class="badge pull-right">9</span> Appointments</a></li>
-          <li><a href="${pageContext.request.contextPath}/#"><i class="fa fa-book"></i><span class="badge pull-right">42</span> Inventory</a></li>
-          <li><a href="${pageContext.request.contextPath}/Admin/Invoices"><i class="fa fa-credit-card"></i><span class="badge pull-right">12</span> Invoices</a></li>
-          <li><a href="${pageContext.request.contextPath}/#"><i class="fa fa-cog"></i>Preferences</a></li>
-          <li><a href="javascript:;" data-toggle="modal" data-target="#confirmLogoutModal"><i class="fa fa-sign-out"></i>Sign Out</a></li>
+          <li><a href="${pageContext.request.contextPath}/Admin/Clients"><i class="fa fa-users"></i>Clients</a></li>
+          <li><a href="${pageContext.request.contextPath}/Admin/Patients"><i class="fa fa-paw"></i>Patients</a></li>
+          <li class="active"><a href="${pageContext.request.contextPath}/Admin/Appointments"><i class="fa fa-calendar"></i>Appointments</a></li>
+          <li><a href="${pageContext.request.contextPath}/Admin/#"><i class="fa fa-book"></i>Inventory <small>(Disabled)</small></a></li>
+          <li><a href="${pageContext.request.contextPath}/Admin/#"><i class="fa fa-credit-card"></i>Invoices <small>(Disabled)</small></a></li>
+          <li><a href="${pageContext.request.contextPath}/Admin/#"><i class="fa fa-cog"></i>Preferences <small>(Disabled)</small></a></li>
+          <li><a href="#" onclick="$('#confirmLogoutModal').modal('show')"><i class="fa fa-sign-out"></i>Sign Out</a></li>
         </ul>
       </div><!--/.navbar-collapse -->
 
       <div class="templatemo-content-wrapper">
         <div class="templatemo-content">
           <ol class="breadcrumb">
-            <li><a href="index.html">Admin Panel</a></li>
-            <li><a href="#">Dashboard</a></li>
+            <li><a href="${pageContext.request.contextPath}/Admin">Admin Panel</a></li>
+            <li><a href="${pageContext.request.contextPath}/Admin">Dashboard</a></li>
             <li class="active">Schedule</li>
           </ol>
           <h1>Dashboard</h1>
@@ -272,6 +273,7 @@
     <script src="<c:url value="/Resources/JS/Bootstrap.min.js" />"></script>
     <script src="<c:url value="/Resources/JS/Templatemo_Script.js" />"></script>
     <script src="<c:url value="/Resources/JS/JQuery.UI.js" />"></script>
+    
     <script type="text/javascript">
     /*
      * JQuery Date Picker
@@ -285,14 +287,25 @@
     {
         $("#dtBox").DateTimePicker();
     });
-    
-    /* 
-     * JQuery Typeahead 
+    /*
+     * END OF JQuery Date Picker
      */
-    var data = {
-            countries: [${InjCountries}],
-            capitals: [${InjCapitals}]
+    
+    /*
+     * JQuery Typeahead
+     */
+        // Our Data Structure (This Is An Object With Arraylist Properties)
+        var data =
+        {
+            FullName:   [],
+            Email:      []
         };
+        
+        // JSTL Iterate Our List And Transfer Them To Our Javascript Arraylist
+        <c:forEach items="${InjNames}" var="user">
+            data.Email.push('${user.email}');
+            data.FullName.push('${user.firstname} ${user.lastname}');
+        </c:forEach>
 
         $('#SearchInput').typeahead({
             minLength: 1,
@@ -306,13 +319,13 @@
             /* This Is Where We Define Our Sources Of Data */
             source:
             {
-                Country:
+                Name:
                 {
-                    data: data.countries
+                    data: data.FullName
                 },
-                Capital:
+                Email:
                 {
-                    data: data.capitals
+                    data: data.Email
                 }
             },
             callback:

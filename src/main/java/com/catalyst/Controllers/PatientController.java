@@ -36,6 +36,12 @@ public class PatientController
         return "Patients"; 
     }
     
+    @RequestMapping(value = {"/Admin/Patients/Name" }, method = RequestMethod.GET)
+    public String Clients_Search_Empty_GET(ModelMap DInjMap)
+    {
+        return "redirect:/Admin/Patients";
+    }
+    
     @RequestMapping(value = {"/Admin/Patients/Name/{argName}" }, method = RequestMethod.GET)
     public String Clients_Search_GET(ModelMap DInjMap, @PathVariable("argName") String argName)
     {

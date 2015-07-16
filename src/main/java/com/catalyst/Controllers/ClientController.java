@@ -28,8 +28,14 @@ public class ClientController
         return "Clients"; 
     }
     
+    @RequestMapping(value = {"/Admin/Clients/Firstname" }, method = RequestMethod.GET)
+    public String Clients_Search_Empty_GET(ModelMap DInjMap)
+    {
+        return "redirect:/Admin/Clients";
+    }
+    
     @RequestMapping(value = {"/Admin/Clients/Firstname/{argName}" }, method = RequestMethod.GET)
-    public String Clients_Search_GET(ModelMap DInjMap,@PathVariable("argName") String argName) // Gets A Variable From Path
+    public String Clients_Search_GET(ModelMap DInjMap, @PathVariable("argName") String argName) // Gets A Variable From Path
     {
         DInjMap.put("PageTitle", Global.ClientPageTitle);               // Page Title
         DInjMap.put("INJECT_STUFF_HERE", Global.ProjectTitle);          // Project Name

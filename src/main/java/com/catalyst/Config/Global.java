@@ -32,64 +32,6 @@ public class Global
     public static final String ProjectVersion       = "v1.1";
     public static final String ProjectDateTime      = "7/10/15-5:33pm";
     
-    
-    // This Is Temporary
-    public static final String strCountries = "\"Afghanistan\", \"Albania\", \"Algeria\", \"Andorra\", \"Angola\", \"Antigua and Barbuda\",\n" +
-"\"Argentina\", \"Armenia\", \"Australia\", \"Austria\", \"Azerbaijan\", \"Bahamas\", \"Bahrain\", \"Bangladesh\",\n" +
-"\"Barbados\", \"Belarus\", \"Belgium\", \"Belize\", \"Benin\", \"Bermuda\", \"Bhutan\", \"Bolivia\",\n" +
-"\"Bosnia and Herzegovina\", \"Botswana\", \"Brazil\", \"Brunei\", \"Bulgaria\", \"Burkina Faso\", \"Burma\",\n" +
-"\"Burundi\", \"Cambodia\", \"Cameroon\", \"Canada\", \"Cape Verde\", \"Central African Republic\", \"Chad\",\n" +
-"\"Chile\", \"China\", \"Colombia\", \"Comoros\", \"Congo, Democratic Republic\", \"Congo, Republic of the\",\n" +
-"\"Costa Rica\", \"Cote d'Ivoire\", \"Croatia\", \"Cuba\", \"Cyprus\", \"Czech Republic\", \"Denmark\", \"Djibouti\",\n" +
-"\"Dominica\", \"Dominican Republic\", \"East Timor\", \"Ecuador\", \"Egypt\", \"El Salvador\",\n" +
-"\"Equatorial Guinea\", \"Eritrea\", \"Estonia\", \"Ethiopia\", \"Fiji\", \"Finland\", \"France\", \"Gabon\",\n" +
-"\"Gambia\", \"Georgia\", \"Germany\", \"Ghana\", \"Greece\", \"Greenland\", \"Grenada\", \"Guatemala\", \"Guinea\",\n" +
-"\"Guinea-Bissau\", \"Guyana\", \"Haiti\", \"Honduras\", \"Hong Kong\", \"Hungary\", \"Iceland\", \"India\",\n" +
-"\"Indonesia\", \"Iran\", \"Iraq\", \"Ireland\", \"Israel\", \"Italy\", \"Jamaica\", \"Japan\", \"Jordan\",\n" +
-"\"Kazakhstan\", \"Kenya\", \"Kiribati\", \"Korea, North\", \"Korea, South\", \"Kuwait\", \"Kyrgyzstan\", \"Laos\",\n" +
-"\"Latvia\", \"Lebanon\", \"Lesotho\", \"Liberia\", \"Libya\", \"Liechtenstein\", \"Lithuania\", \"Luxembourg\",\n" +
-"\"Macedonia\", \"Madagascar\", \"Malawi\", \"Malaysia\", \"Maldives\", \"Mali\", \"Malta\", \"Marshall Islands\",\n" +
-"\"Mauritania\", \"Mauritius\", \"Mexico\", \"Micronesia\", \"Moldova\", \"Mongolia\", \"Morocco\", \"Monaco\",\n" +
-"\"Mozambique\", \"Namibia\", \"Nauru\", \"Nepal\", \"Netherlands\", \"New Zealand\", \"Nicaragua\", \"Niger\",\n" +
-"\"Nigeria\", \"Norway\", \"Oman\", \"Pakistan\", \"Panama\", \"Papua New Guinea\", \"Paraguay\", \"Peru\",\n" +
-"\"Philippines\", \"Poland\", \"Portugal\", \"Qatar\", \"Romania\", \"Russia\", \"Rwanda\", \"Samoa\", \"San Marino\",\n" +
-"\"Sao Tome\", \"Saudi Arabia\", \"Senegal\", \"Serbia and Montenegro\", \"Seychelles\", \"Sierra Leone\",\n" +
-"\"Singapore\", \"Slovakia\", \"Slovenia\", \"Solomon Islands\", \"Somalia\", \"South Africa\", \"Spain\",\n" +
-"\"Sri Lanka\", \"Sudan\", \"Suriname\", \"Swaziland\", \"Sweden\", \"Switzerland\", \"Syria\", \"Taiwan\",\n" +
-"\"Tajikistan\", \"Tanzania\", \"Thailand\", \"Togo\", \"Tonga\", \"Trinidad and Tobago\", \"Tunisia\", \"Turkey\",\n" +
-"\"Turkmenistan\", \"Uganda\", \"Ukraine\", \"United Arab Emirates\", \"United Kingdom\", \"United States\",\n" +
-"\"Uruguay\", \"Uzbekistan\", \"Vanuatu\", \"Venezuela\", \"Vietnam\", \"Yemen\", \"Zambia\", \"Zimbabwe\"";
-    
-    public static final String strCapitals = "\"Abu Dhabi\", \"Abuja\", \"Accra\", \"Adamstown\", \"Addis Ababa\", \"Algiers\", \"Alofi\", \"Amman\", \"Amsterdam\",\n" +
-"\"Andorra la Vella\", \"Ankara\", \"Antananarivo\", \"Apia\", \"Ashgabat\", \"Asmara\", \"Astana\", \"Asunción\", \"Athens\",\n" +
-"\"Avarua\", \"Baghdad\", \"Baku\", \"Bamako\", \"Bandar Seri Begawan\", \"Bangkok\", \"Bangui\", \"Banjul\", \"Basseterre\",\n" +
-"\"Beijing\", \"Beirut\", \"Belgrade\", \"Belmopan\", \"Berlin\", \"Bern\", \"Bishkek\", \"Bissau\", \"Bogotá\", \"Brasília\",\n" +
-"\"Bratislava\", \"Brazzaville\", \"Bridgetown\", \"Brussels\", \"Bucharest\", \"Budapest\", \"Buenos Aires\", \"Bujumbura\",\n" +
-"\"Cairo\", \"Canberra\", \"Caracas\", \"Castries\", \"Cayenne\", \"Charlotte Amalie\", \"Chisinau\", \"Cockburn Town\",\n" +
-"\"Conakry\", \"Copenhagen\", \"Dakar\", \"Damascus\", \"Dhaka\", \"Dili\", \"Djibouti\", \"Dodoma\", \"Doha\", \"Douglas\",\n" +
-"\"Dublin\", \"Dushanbe\", \"Edinburgh of the Seven Seas\", \"El Aaiún\", \"Episkopi Cantonment\", \"Flying Fish Cove\",\n" +
-"\"Freetown\", \"Funafuti\", \"Gaborone\", \"George Town\", \"Georgetown\", \"Georgetown\", \"Gibraltar\", \"King Edward Point\",\n" +
-"\"Guatemala City\", \"Gustavia\", \"Hagåtña\", \"Hamilton\", \"Hanga Roa\", \"Hanoi\", \"Harare\", \"Hargeisa\", \"Havana\",\n" +
-"\"Helsinki\", \"Honiara\", \"Islamabad\", \"Jakarta\", \"Jamestown\", \"Jerusalem\", \"Juba\", \"Kabul\", \"Kampala\",\n" +
-"\"Kathmandu\", \"Khartoum\", \"Kiev\", \"Kigali\", \"Kingston\", \"Kingston\", \"Kingstown\", \"Kinshasa\", \"Kuala Lumpur\",\n" +
-"\"Kuwait City\", \"Libreville\", \"Lilongwe\", \"Lima\", \"Lisbon\", \"Ljubljana\", \"Lomé\", \"London\", \"Luanda\", \"Lusaka\",\n" +
-"\"Luxembourg\", \"Madrid\", \"Majuro\", \"Malabo\", \"Malé\", \"Managua\", \"Manama\", \"Manila\", \"Maputo\", \"Marigot\",\n" +
-"\"Maseru\", \"Mata-Utu\", \"Mbabane Lobamba\", \"Melekeok Ngerulmud\", \"Mexico City\", \"Minsk\", \"Mogadishu\", \"Monaco\",\n" +
-"\"Monrovia\", \"Montevideo\", \"Moroni\", \"Moscow\", \"Muscat\", \"Nairobi\", \"Nassau\", \"Naypyidaw\", \"N'Djamena\",\n" +
-"\"New Delhi\", \"Niamey\", \"Nicosia\", \"Nicosia\", \"Nouakchott\", \"Nouméa\", \"Nukuʻalofa\", \"Nuuk\", \"Oranjestad\",\n" +
-"\"Oslo\", \"Ottawa\", \"Ouagadougou\", \"Pago Pago\", \"Palikir\", \"Panama City\", \"Papeete\", \"Paramaribo\", \"Paris\",\n" +
-"\"Philipsburg\", \"Phnom Penh\", \"Plymouth Brades Estate\", \"Podgorica Cetinje\", \"Port Louis\", \"Port Moresby\",\n" +
-"\"Port Vila\", \"Port-au-Prince\", \"Port of Spain\", \"Porto-Novo Cotonou\", \"Prague\", \"Praia\", \"Cape Town\",\n" +
-"\"Pristina\", \"Pyongyang\", \"Quito\", \"Rabat\", \"Reykjavík\", \"Riga\", \"Riyadh\", \"Road Town\", \"Rome\", \"Roseau\",\n" +
-"\"Saipan\", \"San José\", \"San Juan\", \"San Marino\", \"San Salvador\", \"Sana'a\", \"Santiago\", \"Santo Domingo\",\n" +
-"\"São Tomé\", \"Sarajevo\", \"Seoul\", \"Singapore\", \"Skopje\", \"Sofia\", \"Sri Jayawardenepura Kotte\", \"St. George's\",\n" +
-"\"St. Helier\", \"St. John's\", \"St. Peter Port\", \"St. Pierre\", \"Stanley\", \"Stepanakert\", \"Stockholm\", \"Sucre\",\n" +
-"\"Sukhumi\", \"Suva\", \"Taipei\", \"Tallinn\", \"Tarawa Atoll\", \"Tashkent\", \"Tbilisi\", \"Tegucigalpa\", \"Tehran\",\n" +
-"\"Thimphu\", \"Tirana\", \"Tiraspol\", \"Tokyo\", \"Tórshavn\", \"Tripoli\", \"Tskhinvali\", \"Tunis\", \"Ulan Bator\", \"Vaduz\",\n" +
-"\"Valletta\", \"The Valley\", \"Vatican City\", \"Victoria\", \"Vienna\", \"Vientiane\", \"Vilnius\", \"Warsaw\",\n" +
-"\"Washington, D.C.\", \"Wellington\", \"West Island\", \"Willemstad\", \"Windhoek\", \"Yamoussoukro\", \"Yaoundé\", \"Yaren\",\n" +
-"\"Yerevan\", \"Zagreb\"";
-    
 /*
                             Change Log:
     [*] = Fix
