@@ -82,7 +82,8 @@ public class AppConfig extends WebMvcConfigurerAdapter
     // Binds A Hibernate Session From SessionFactory To A Thread
     @Bean
     @Autowired
-    public HibernateTransactionManager transactionManager(SessionFactory s) {
+    public HibernateTransactionManager transactionManager(SessionFactory s)
+    {
         HibernateTransactionManager txManager = new HibernateTransactionManager();
         txManager.setSessionFactory(s);
         return txManager;

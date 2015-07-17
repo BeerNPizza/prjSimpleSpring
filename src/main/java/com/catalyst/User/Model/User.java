@@ -8,24 +8,19 @@ import javax.persistence.Table;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
 import javax.persistence.CascadeType;
-import org.hibernate.annotations.Proxy;
 import javax.persistence.GeneratedValue;
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.annotations.GenericGenerator;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-/*
-    Has A OneToMany Relationship With Pets
-    Has A OneToMany Relationship With Appointments
-*/
+
 @Entity
-@Table(name = "Users")          // Table Name Is 'Users'
-@Proxy(lazy = false)            // Was Causing Problems With JSON Output (I Dont Like This Tho...)
-@JsonInclude(JsonInclude.Include.NON_EMPTY) // Tell JSON Not To Output Empty Fields
+@Table(name = "Users")
 public class User implements Serializable
 {
     @Id
-    @GenericGenerator(name = "ID_Generator", strategy = "increment")
+    @GenericGenerator(name = "ID_Generator", strategy = "increment") // Generating The ID Value In Sequence
     @GeneratedValue(generator = "ID_Generator")
     @Column(name = "User_ID")
     private int ID;
@@ -48,17 +43,18 @@ public class User implements Serializable
     @Column(name = "Zip")
     private int Zip;
 
-    @Column(name = "Email", unique = true) // Unique Constraint
+    @Email
+    @Column(name = "Email")
     private String Email;
     
     @Column(name = "Password")
     private String Password;
     
     @Column(name = "Role")
-    private String Role = "Normal User";
+    private String Role;
     
     @Column(name = "Active")
-    private int Active  = 1;
+    private int Active;
 
     //////////////////////////////////////////
     // Relationships
@@ -209,4 +205,13 @@ public class User implements Serializable
     {
         this.pets = argPets;
     }
+    
+    // Method To Execute Before Being Persisted (Save)
+    @PrePersist
+    void prePersist()
+    {
+        this.Role   = "Normal User";
+        this.Active = 1;
+    }
+    // Just Basically Inserting Default Values
 }

@@ -17,6 +17,9 @@
     
     <!-- JQuery Calendar -->
     <link rel="stylesheet" type="text/css" href="<c:url value="/Resources/CSS/DateTimePicker.css" />" />
+    
+    <!-- Moment (Time/Date Utility) -->
+    <script src="<c:url value="/Resources/JS/Calendar/Moment.min.js" />"></script>
 </head>
 <body>
   <div class="navbar navbar-inverse" role="navigation">
@@ -92,7 +95,6 @@
                             <th>Breed</th>
                             <th>Age</th>
                             <th>Owner (User_ID)</th>
-                            <th>Actions</th>
                         </tr>
                       </thead>
                       <c:forEach items="${listPets}" var="pet">
@@ -103,22 +105,7 @@
                                 <td>${pet.type}</td>
                                 <td>${pet.breed}</td>
                                 <td>${pet.age}</td>
-                                <td>${pet.userInPet.ID} (${pet.userInPet.firstname} ${pet.userInPet.lastname})<a href="#" class="btn btn-default pull-right">View</a></td>
-                                <td>
-                                <!-- Action Button -->
-                                <div class="btn-group pull-right">
-                                  <button type="button" class="btn btn-info">Action</button>
-                                  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
-                                    <span class="caret"></span>
-                                    <span class="sr-only">Toggle Dropdown</span>
-                                  </button>
-                                  <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#"><i class="fa fa-info-circle"></i> View</a></li>
-                                    <li><a href="#"><i class="fa fa-pencil-square-o"></i> Edit</a></li>
-                                    <li><a href="#"><i class="fa fa-times-circle"></i> Delete</a></li>
-                                  </ul>
-                                </div>
-                              </td>
+                                <td>${pet.userInPet.ID} (${pet.userInPet.firstname} ${pet.userInPet.lastname})</td>
                             </tr>
                         </tbody>
                       </c:forEach>
@@ -153,7 +140,7 @@
         </div>
       </div>
       
-            <!-- Add Client Modal (Country Not Used Yet)-->
+      <!-- Add Patient Modal -->
       <div class="modal fade" id="CreatePatientModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -315,10 +302,120 @@
           </div>
         </div>
       </div>
+        
+            
+        <!-- View Patient Modal -->
+    <div class="modal fade" id="ViewPatientModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<h4 class="modal-title" id="myModalLabel"><i class="fa fa-paw"></i> View A Patient</h4>
+				</div>
+				<div class="modal-body text-center">
+					<form class="form-horizontal" role="form" action="#" method="POST">
+						<fieldset>
+
+                                                        <div class="form-group">
+                                                        
+                                                            <ul class="nav nav-tabs" role="tablist">
+                                                                <li class="active"><a href="#basic" role="tab" data-toggle="tab">Basic Info</a></li>
+                                                                <li><a href="#invoices" role="tab" data-toggle="tab">Invoices</a></li>
+                                                                <li><a href="#procedures" role="tab" data-toggle="tab">Procedures</a></li>
+                                                            </ul>
+
+                                                            <!-- Tab panes -->
+                                                            <div class="tab-content">
+                                                                <div class="tab-pane active" id="basic">
+                                                                        <br>
+                                                                        <div class="form-group">
+                                                                            <label class="col-sm-1 control-label" for="textinput">Name</label>
+                                                                            <div class="col-sm-4">
+                                                                                    <input type="text" id="ViewPatient_Name" name="ViewPatient_Name" class="form-control">
+                                                                            </div>
+
+                                                                            <label class="col-sm-1 control-label" for="textinput">Age</label>
+                                                                            <div class="col-sm-2">
+                                                                                    <input type="text" id="ViewPatient_Age" name="ViewPatient_Age" class="form-control">
+                                                                            </div>
+
+                                                                            <label class="col-sm-1 control-label" for="textinput">ID#</label>
+                                                                            <div class="col-sm-2">
+                                                                                    <input type="text" id="ViewPatient_ID" name="ViewPatient_ID" class="form-control">
+                                                                            </div>
+                                                                        </div>
+			  
+                                                                        <div class="form-group">
+                                                                            <label class="col-sm-1 control-label" for="textinput">Type</label>
+                                                                            <div class="col-sm-4">
+                                                                                <input type="text" id="ViewPatient_Type" name="ViewPatient_Type" class="form-control">
+                                                                            </div>
+								
+                                                                            <label class="col-sm-1 control-label" for="textinput">Breed</label>
+                                                                            <div class="col-sm-6">
+                                                                                <input type="text" id="ViewPatient_Breed" name="ViewPatient_Breed" class="form-control">
+                                                                            </div>
+                                                                        </div>
+                                                                </div>
+                                                                
+                                                                <div class="tab-pane" id="invoices">
+                                                                        <br>
+                                                                        <div class="table-responsive">
+                                                                            <table class="table table-striped table-hover table-bordered" id="invoiceTable">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Amount</th>
+                                                                                        <th>Description</th>
+                                                                                        <th>Created</th>
+                                                                                        <th>Modified</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>  
+                                                                        </div>
+                                                                </div>
+                                                                <div class="tab-pane" id="procedures">
+                                                                        <br>
+                                                                        <div class="table-responsive">
+                                                                            <table class="table table-striped table-hover table-bordered" id="procedureTable">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Name</th>
+                                                                                        <th>Description</th>
+                                                                                        <th>Cost</th>
+                                                                                        <th>Date</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <!-- JQuery Injects Data here -->
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>  
+                                                                        </div>
+                                                                </div>
+                                                            </div>
+                                                
+                                                        </div>
+							
+							<!-- Modal Footer -->
+							<div class="modal-footer">
+                                                            
+							</div>
+							
+						</fieldset>
+					</form>
+				</div>
+			</div>
+        </div>
+    </div>
               
       <footer class="templatemo-footer">
         <div class="templatemo-copyright">
-          <p>Copyright &copy; 2014 Val's Vet Office</p>
+          <p class="testme">Copyright &copy; 2014 Val's Vet Office</p>
         </div>
       </footer>
     </div>
@@ -336,23 +433,61 @@
     /*
      * JQuery Date Picker
      */
-    $(function()
-    {
-        $( "#datepicker" ).datepicker();
-    });
-    
     $(document).ready(function()
     {
         $("#dtBox").DateTimePicker();
     });
 
+    /*
+     * JQuery Click On View In Table To See Patient Data
+     */
+    $("table tr").click(function()
+    {
+        // 1st: Get ID Number Of This Row (Patient's ID)
+        $PatientID = $(this).find('td:first').text();
+        
+        // 2nd: Construct Our API Request
+        $APIUrl = "${pageContext.request.contextPath}/API/Patient/" + $PatientID;
+        
+        // 3rd: Make An API Request
+        $.getJSON($APIUrl, function(result)
+        {
+            $("#ViewPatient_Name").val(result.name);
+            $("#ViewPatient_Age").val(result.age);
+            $("#ViewPatient_ID").val(result.id);
+            $("#ViewPatient_Type").val(result.type);
+            $("#ViewPatient_Breed").val(result.breed);
+            
+            // Loop Through Nested Invoice(s)
+            $.each(result.invoices, function(key, val)
+            {
+                $('#invoiceTable tr:last').after('<tr><td>$' + val.invoiceAmount + '</td><td>'+ val.invoiceDescription + '</td><td>'+ moment(val.invoiceModified).format('D-MM-YYYY h:mm') + '</td><td>'+ moment(val.invoiceCreated).format('D-MM-YYYY h:mm') + '</td></tr>');
+            });
+            
+            // Loop Through Nested Procedure(s)
+            $.each(result.procedures, function(key, val)
+            {
+                $('#procedureTable tr:last').after('<tr><td>' + val.procedureName + '</td><td>'+ val.procedureDescription + '</td><td>'+ val.procedureCost + '</td><td>'+ moment(val.procedureDate).format('D-MM-YYYY h:mm') + '</td></tr>');
+            });
+        });
+        
+        // Finally, Display The Modal
+        $('#ViewPatientModal').modal('show');
+    });
+    
+    // Clean Modal After Use
+    $('#ViewPatientModal').on('hidden.bs.modal', function (e)
+    {
+        $("#invoiceTable tbody tr").remove();
+        $("#procedureTable tbody tr").remove();
+    });
     
     /*
      *  JQuery Function To Submit A Search After Pressing Enter In Search Box
      */
     $('#patient_search').keypress(function(event)
     {
-        if(event.which == 13)
+        if(event.which === 13)
         {
             $('#search_button')[0].click();
         }

@@ -47,6 +47,10 @@ public class Global
     [!][7.2.15]  - To Do Add Javax Validation To Models
     [!][7.2.15]  - To Do Add Binding Result To Registration Controller (+ Any Controller With Input)
 
+    [+][7.16.15] - Fixed API Problem! Prior, I was doing an EAGER load on entities to load all their pointers.
+                   Now I created a new method in the service layer that Automaps entity to entity.
+                   Reason why this remedys the problem is because I am copying the entity out of state.
+                   Method is -> findByID_API(int argID) and its a generic method across service layers.
     [+][7.13.15] - Added Procedures Table + Modal To Create New Procedures
     [+][7.11.15] - Added Create Procedure Modal To Patients Page
     [+][7.11.15] - Added JQuery Validation To All Fields In Client/Add Modal

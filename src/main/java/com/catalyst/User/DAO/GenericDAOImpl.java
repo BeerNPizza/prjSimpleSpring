@@ -1,13 +1,13 @@
-
 package com.catalyst.User.DAO;
 
 import java.util.List;
 import java.io.Serializable;
 import org.hibernate.Criteria;
 import java.lang.reflect.Type;
+import ma.glasnost.orika.MapperFacade;
 import java.lang.reflect.ParameterizedType;
 import org.springframework.stereotype.Repository;
-
+import org.springframework.beans.factory.annotation.Autowired;
 /*
     Generic DAO Implementation Class
     By Using Generic Layers I Can Load A Single Service To Handle Shared Functionality
@@ -16,8 +16,10 @@ import org.springframework.stereotype.Repository;
 @Repository("genericDAO")
 public abstract class GenericDAOImpl <E, K extends Serializable> extends AbstractDAO implements GenericDAO <E, K>
 {
-    // Used To Get Name Of Current Class
-    protected Class<? extends E> persistentClass;
+    @Autowired
+    MapperFacade OrikaMapper;
+    
+    protected Class<? extends E> persistentClass; // Used To Get Name Of Current Class
     
     public GenericDAOImpl()
     {
@@ -29,36 +31,41 @@ public abstract class GenericDAOImpl <E, K extends Serializable> extends Abstrac
     @Override
     public void addByEntity(E argEntity)
     {
-        persist(argEntity); // These Methods Are Defined In AbstractDAO
+        persist(argEntity);
     }
     
     @Override
     public void updateByEntity(E argEntity)
     {
-        update(argEntity); // These Methods Are Defined In AbstractDAO
+        update(argEntity);
     }
     
     @Override
     public void deleteByID(int argID)
     {
-        E hEntity;
-        hEntity = (E)getSession().load(persistentClass, argID);
+        E hEntity = (E)getSession().load(persistentClass, argID);
         if(hEntity != null)
         {
-            delete(hEntity); // These Methods Are Defined In AbstractDAO
+            delete(hEntity);
         }
     }
     
     @Override
-    public E findByID(int argID)
+    public E findByID(int argID) // This Method Is For General Use, It Lazily Loads An Entity With Refrences To Other Data
     {
         return (E)getSession().load(persistentClass, argID);
     }
     
     @Override
+    public E findByID_API(int argID) // This Method Is For API Use ONLY [Loads All Refrences To Data]
+    {
+        return(OrikaMapper.map((E)getSession().load(persistentClass, argID), persistentClass));
+    }
+    
+    @Override
     public List<E> listAll()
     {
-        Criteria criteria = getSession().createCriteria(persistentClass); // These Methods Are Defined In AbstractDAO ( getSession() )
+        Criteria criteria = getSession().createCriteria(persistentClass);
         return (List<E>)criteria.list();
     }
 }

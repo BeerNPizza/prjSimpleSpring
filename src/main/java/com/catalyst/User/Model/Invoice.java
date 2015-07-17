@@ -1,6 +1,5 @@
 package com.catalyst.User.Model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.util.Date;
 import java.sql.Timestamp;
 import javax.persistence.Id;
@@ -12,17 +11,12 @@ import javax.persistence.Temporal;
 import javax.persistence.ManyToOne;
 import javax.persistence.JoinColumn;
 import javax.persistence.TemporalType;
-import org.hibernate.annotations.Proxy;
 import javax.persistence.GeneratedValue;
 import org.hibernate.annotations.GenericGenerator;
-import com.fasterxml.jackson.annotation.JsonInclude;
-/*
-    Has A ManyToOne Relationship With Pets
-*/
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "Invoices")
-// @Proxy(lazy = false)            // Was Causing Problems With JSON Output
-@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class Invoice implements Serializable
 {
     @Id

@@ -14,14 +14,7 @@
     <link rel="stylesheet" type="text/css" href="<c:url value="/Resources/CSS/Templatemo_Main.css" />" >
     
     <!-- Country Flags -->
-    <link rel="stylesheet" type="text/css" href="<c:url value="/Resources/CSS/Bootstrap-Formhelpers.css" />" >
-    
-<script>
-    $(document).ready(function()
-    {
-        $('.bfh-selectbox').attr('disabled',true);
-    });
-</script>
+    <link rel="stylesheet" type="text/css" href="<c:url value="/Resources/CSS/Bootstrap-Formhelpers.css" />" > 
 </head>
 <body>
   <div class="navbar navbar-inverse" role="navigation">
@@ -63,7 +56,7 @@
             <div class="row">
               <div class="col-md-12">
                 <ul class="nav nav-pills">
-                  <li class="active"><a href="javascript:;" data-toggle="modal" data-target="#CreateClientModal"><i class="fa fa-plus"></i> Add Client</a></li>
+                  <li class="active"><a href="#" onclick="$('#CreateClientModal').modal('show')"><i class="fa fa-plus"></i> Add Client</a></li>
                 </ul>          
               </div>
             </div>
@@ -79,7 +72,7 @@
                 </div>
             </div>
         </div>
-                  
+
           <div class="templatemo-panels">
             <c:if test="${!empty listUsers}"> <!-- If Not Empty-->
             <div class="row">
@@ -87,7 +80,7 @@
                 <div class="panel panel-primary">
                   <div class="panel-heading">User Table</div>
                     <div class="table-responsive">
-                    <table class="table table-striped table-hover table-bordered">
+                    <table class="table table-striped table-hover table-bordered" id="clientTable">
                       <thead>
                         <tr>
                           <th>#</th>
