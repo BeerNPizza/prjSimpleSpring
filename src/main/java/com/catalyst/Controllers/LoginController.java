@@ -1,6 +1,5 @@
 package com.catalyst.Controllers;
 
-import com.catalyst.Config.CustomExceptions;
 import com.catalyst.Config.Global;
 import com.catalyst.User.Model.User;
 import org.springframework.ui.ModelMap;
@@ -62,7 +61,7 @@ public class LoginController
                 return "Login";
             }
         }
-        catch(CustomExceptions hCust) // This Will Catch Runtime Exception Relating To Email Not Found In Database
+        catch(Exception hCust) // This Will Catch Runtime Exception Relating To Email Not Found In Database
         {
             System.out.println("Exception Occured! Details: " + hCust.getMessage());
         }

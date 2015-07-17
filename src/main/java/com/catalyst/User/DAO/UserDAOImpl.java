@@ -1,14 +1,13 @@
 package com.catalyst.User.DAO;
 
-import com.catalyst.Config.CustomExceptions;
-import com.catalyst.User.Model.User;
 import java.util.List;
-import org.hibernate.Criteria;
 import org.hibernate.Query;
+import org.hibernate.Criteria;
+import com.catalyst.User.Model.User;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.stereotype.Repository;
 
 @Repository("userDAO") // Declares (To Spring) This Class As Apart Of The Persistance Layer
 public class UserDAOImpl extends GenericDAOImpl<User, Integer> implements UserDAO
@@ -37,7 +36,7 @@ public class UserDAOImpl extends GenericDAOImpl<User, Integer> implements UserDA
             return (User)crit.uniqueResult();
         }
         else {
-            throw new CustomExceptions("No User With That Email Found");
+            throw new RuntimeException("No User With That Email Found");
         }
     }
     
@@ -53,7 +52,7 @@ public class UserDAOImpl extends GenericDAOImpl<User, Integer> implements UserDA
             return((String)query.uniqueResult());
         }
         else {
-            throw new CustomExceptions("No User With That Email Found");
+            throw new RuntimeException("No User With That Email Found");
         }
     }
     
@@ -67,7 +66,7 @@ public class UserDAOImpl extends GenericDAOImpl<User, Integer> implements UserDA
             return crit.list();
         }
         else {
-            throw new CustomExceptions("No User(s) With That Firstname Found");
+            throw new RuntimeException("No User(s) With That Firstname Found");
         }
     }
 }

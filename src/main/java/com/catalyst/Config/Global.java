@@ -8,7 +8,10 @@ package com.catalyst.Config;
     2.) Configure Database Settings Below
 */
 public class Global
-{    
+{
+    // Runtime Settings
+    public static final String ErrorPage            = "Error"; // (.jsp)
+    
     // Web Page Titles And Stuff
     public static final String ProjectTitle         = "<b>Val's</b> Vet Clinic";
     public static final String IndexPageTitle       = "Welcome!";

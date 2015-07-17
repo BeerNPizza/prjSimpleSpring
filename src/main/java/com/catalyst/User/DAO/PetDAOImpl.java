@@ -1,9 +1,8 @@
 package com.catalyst.User.DAO;
 
-import com.catalyst.Config.CustomExceptions;
-import com.catalyst.User.Model.Pet;
 import java.util.List;
 import org.hibernate.Criteria;
+import com.catalyst.User.Model.Pet;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
@@ -28,7 +27,7 @@ public class PetDAOImpl extends GenericDAOImpl<Pet, Integer> implements PetDAO
             return crit.list();
         }
         else {
-            throw new CustomExceptions("No Pets With That Name Found");
+            throw new RuntimeException("No Pets With That Name Found");
         }
     }
 }

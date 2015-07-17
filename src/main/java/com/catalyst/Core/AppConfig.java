@@ -104,7 +104,6 @@ public class AppConfig extends WebMvcConfigurerAdapter
     @Bean
     public BCryptPasswordEncoder getBCryptPasswordEncoder()
     {
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        return encoder;
+        return new BCryptPasswordEncoder();
     }
 }

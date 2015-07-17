@@ -58,7 +58,7 @@ public class RegistrationController
     {
         
         // Wish I could do this in a cooler way
-        hPet.setUserInPet(this.hUserService.findByID(UserID));
+        hPet.setUserInPet(this.hUserService.findByID(UserID, false));
         
         this.hPetService.addByEntity(hPet);
 
@@ -82,7 +82,7 @@ public class RegistrationController
             )
     {        
         Procedure hProcedure = new Procedure();
-        hProcedure.setPetInProcedure(this.hPetService.findByID(PetID));
+        hProcedure.setPetInProcedure(this.hPetService.findByID(PetID, false));
         hProcedure.setProcedureName(ProcedureName);
         hProcedure.setProcedureDescription(ProcedureDescription);
         hProcedure.setProcedureCost(ProcedureCost);

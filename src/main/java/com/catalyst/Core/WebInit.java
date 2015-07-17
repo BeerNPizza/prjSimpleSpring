@@ -13,7 +13,6 @@ import org.springframework.web.context.support.AnnotationConfigWebApplicationCon
 */
 public class WebInit implements WebApplicationInitializer
 {
-    // Overriding Spring's onStartup() Method To Configure Our Servlet Dispatcher
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException
     {        

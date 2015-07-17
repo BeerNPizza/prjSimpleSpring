@@ -17,7 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public abstract class GenericDAOImpl <E, K extends Serializable> extends AbstractDAO implements GenericDAO <E, K>
 {
     @Autowired
-    MapperFacade OrikaMapper;
+    MapperFacade autoMapper;
     
     protected Class<? extends E> persistentClass; // Used To Get Name Of Current Class
     
@@ -50,16 +50,20 @@ public abstract class GenericDAOImpl <E, K extends Serializable> extends Abstrac
         }
     }
     
+    /*
+        This method returns an Entity in 2 ways.
+        If isAPI = false, then a Entity Object is returned with UNRESOLVED pointers (Lazy Load)
+        If isAPI = true, then a Entity Object is returned with RESOLVED pointers    (Eager Load)
+    */
     @Override
-    public E findByID(int argID) // This Method Is For General Use, It Lazily Loads An Entity With Refrences To Other Data
+    public E findByID(int argID, boolean isAPI)
     {
-        return (E)getSession().load(persistentClass, argID);
-    }
-    
-    @Override
-    public E findByID_API(int argID) // This Method Is For API Use ONLY [Loads All Refrences To Data]
-    {
-        return(OrikaMapper.map((E)getSession().load(persistentClass, argID), persistentClass));
+        if(isAPI) {
+            return(autoMapper.map((E)getSession().load(persistentClass, argID), persistentClass));
+        }
+        else {
+            return (E)getSession().load(persistentClass, argID);
+        }
     }
     
     @Override

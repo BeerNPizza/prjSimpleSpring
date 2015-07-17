@@ -105,7 +105,7 @@
                                 <td>${pet.type}</td>
                                 <td>${pet.breed}</td>
                                 <td>${pet.age}</td>
-                                <td>${pet.userInPet.ID} (${pet.userInPet.firstname} ${pet.userInPet.lastname})</td>
+                                <td>${pet.userInPet.firstname} ${pet.userInPet.lastname} (${pet.userInPet.email})</td>
                             </tr>
                         </tbody>
                       </c:forEach>
