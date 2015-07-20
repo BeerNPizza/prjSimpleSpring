@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8">
-    <title>${PageTitle}</title>
+    <title>Patients</title>
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width">
@@ -24,7 +24,7 @@
 <body>
   <div class="navbar navbar-inverse" role="navigation">
       <div class="navbar-header">
-        <div class="logo"><h1>${INJECT_STUFF_HERE}</h1></div>
+        <div class="logo"><h1>Val's Vet Clinic</h1></div>
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
@@ -415,7 +415,7 @@
               
       <footer class="templatemo-footer">
         <div class="templatemo-copyright">
-          <p class="testme">Copyright &copy; 2014 Val's Vet Office</p>
+          <p class="testme">Copyright &copy; 2015 Val's Vet Office</p>
         </div>
       </footer>
     </div>
@@ -478,8 +478,8 @@
     // Clean Modal After Use
     $('#ViewPatientModal').on('hidden.bs.modal', function (e)
     {
-        $("#invoiceTable tbody tr").remove();
-        $("#procedureTable tbody tr").remove();
+        $("#invoiceTable tr").remove();
+        $("#procedureTable tr").remove();
     });
     
     /*

@@ -1,8 +1,5 @@
 package com.catalyst.Controllers;
 
-import com.catalyst.Config.Global;
-import com.catalyst.User.Model.Pet;
-import com.catalyst.User.Model.User;
 import org.springframework.ui.ModelMap;
 import com.catalyst.User.Service.PetService;
 import com.catalyst.User.Service.UserService;
@@ -24,13 +21,7 @@ public class PatientController
     @RequestMapping(value = {"/Admin/Patients" }, method = RequestMethod.GET) // Tells Spring When/Where To Select This Method
     public String Patients_GET(ModelMap DInjMap) // Method Names Can Be Anything. Never Called Directly
     {
-        DInjMap.put("PageTitle", Global.PatientPageTitle);              // Page Title
-        DInjMap.put("INJECT_STUFF_HERE", Global.ProjectTitle);          // Project Name
-        
-        DInjMap.put("pet", new Pet());                                  // Create/Inject New Pet Bean
-        DInjMap.put("listPets", this.hPetService.listAll());            // Inject List of Pets
-        
-        DInjMap.put("user", new User());                                // Create/Inject New User Bean
+        DInjMap.put("listPets", this.hPetService.listAll());            // Inject List of Pets 
         DInjMap.put("listUsers", this.hUserService.listAll());          // Inject List Of Users
         
         return "Patients"; 
@@ -45,10 +36,6 @@ public class PatientController
     @RequestMapping(value = {"/Admin/Patients/Name/{argName}" }, method = RequestMethod.GET)
     public String Clients_Search_GET(ModelMap DInjMap, @PathVariable("argName") String argName)
     {
-        DInjMap.put("PageTitle", Global.ClientPageTitle);               // Page Title
-        DInjMap.put("INJECT_STUFF_HERE", Global.ProjectTitle);          // Project Name
-        
-        DInjMap.put("pet", new Pet());                                       // Create/Inject New Pet Bean
         DInjMap.put("listPets", this.hPetService.getPetsByName(argName));   // Inject List Of Pets With That Name
         
         return "Patients";

@@ -14,4 +14,6 @@ public interface UserService extends GenericService<User, Integer>
     public User getUserByEmail(String argEmail);
     public String getPasswordByEmail(String argEmail);
     public List getUsersByFirstname(String argName);
+    
+    public boolean checkEmailAndPassword(String argEmail, String argPassword);
 }

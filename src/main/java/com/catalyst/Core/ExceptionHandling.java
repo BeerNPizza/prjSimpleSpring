@@ -20,7 +20,7 @@ public class ExceptionHandling
     public ModelAndView defaultErrorHandler(HttpServletRequest argRequest, Exception argException) throws Exception
     {
         ModelAndView hModelView = new ModelAndView();
-        hModelView.setViewName(Global.ErrorPage);
+        hModelView.setViewName(Global.ErrorPage); // Error.jsp Is Template
         hModelView.addObject("exception", argException);
         hModelView.addObject("url", argRequest.getRequestURL());
 

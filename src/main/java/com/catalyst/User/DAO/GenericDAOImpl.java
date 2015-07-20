@@ -53,7 +53,7 @@ public abstract class GenericDAOImpl <E, K extends Serializable> extends Abstrac
     /*
         This method returns an Entity in 2 ways.
         If isAPI = false, then a Entity Object is returned with UNRESOLVED pointers (Lazy Load)
-        If isAPI = true, then a Entity Object is returned with RESOLVED pointers    (Eager Load)
+        If isAPI = true,  then a Entity Object is returned with RESOLVED pointers   (Eager Load)
     */
     @Override
     public E findByID(int argID, boolean isAPI)

@@ -207,6 +207,7 @@ public class User implements Serializable
     }
     
     // Method To Execute Before Being Persisted (Save)
+    // Not Working
     @PrePersist
     void prePersist()
     {

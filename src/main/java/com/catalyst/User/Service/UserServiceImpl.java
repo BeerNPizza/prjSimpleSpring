@@ -50,4 +50,11 @@ public class UserServiceImpl extends GenericServiceImpl<User, Integer> implement
     {
         return(this.userDAO.getUsersByFirstname(argName));
     }
+    
+    @Override
+    @Transactional
+    public boolean checkEmailAndPassword(String argEmail, String argPassword)
+    {
+        return(this.userDAO.checkEmailAndPassword(argEmail, argPassword));
+    }
 }

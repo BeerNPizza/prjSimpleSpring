@@ -15,7 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.RequestParam;
+/*
+    Ugly!
+    Business Logic In The Controllers?! GROSS!
 
+    Refactor this with DTO's & Binding result!
+*/
 @Controller
 public class RegistrationController
 {

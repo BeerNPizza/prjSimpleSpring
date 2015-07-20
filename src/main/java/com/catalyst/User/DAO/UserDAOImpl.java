@@ -69,4 +69,27 @@ public class UserDAOImpl extends GenericDAOImpl<User, Integer> implements UserDA
             throw new RuntimeException("No User(s) With That Firstname Found");
         }
     }
+    
+    @Override
+    public boolean checkEmailAndPassword(String argEmail, String argPassword)
+    {
+        Query query = getSession().createQuery("SELECT Password FROM User WHERE Email = :argemail"); //Entity NOT Table 
+	query.setParameter("argemail", argEmail);
+        query.setFirstResult(0);                     // Result 0 Is First Result
+        query.setMaxResults(1);                      // Result 1 Is Max Result
+        // Check Result
+        if((String)query.uniqueResult() != null)
+        {
+            if(this.getBCryptPasswordEncoder.matches(argPassword, (String)query.uniqueResult()))
+            {
+                return(true);   // Same
+            }
+            
+            return(false);      // Not Same
+        }
+        else
+        {
+            return(false);      // Nobody With That Email Exists (Returned Null)
+        }
+    }
 }

@@ -23,13 +23,7 @@ public class AppointmentController
     @RequestMapping(value = {"/Admin/Appointments" }, method = RequestMethod.GET)
     public String Appointment_GET(ModelMap DInjMap)
     {
-        DInjMap.put("PageTitle", Global.AdminPageTitle);
-        DInjMap.put("INJECT_STUFF_HERE", Global.ProjectTitle);
-        
-        DInjMap.put("pet", new Pet());                                  // Create/Inject New Pet Bean
         DInjMap.put("listPets", this.hPetService.listAll());            // Inject List of Pets
-        
-        DInjMap.put("user", new User());
         DInjMap.put("InjNames", this.hUserService.listAll());
         
         return "Appointments"; 
