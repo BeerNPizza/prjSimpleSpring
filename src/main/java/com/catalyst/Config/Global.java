@@ -1,6 +1,7 @@
 package com.catalyst.Config;
 
 /*
+-XXaltjvm=dcevm -javaagent:C:\Apache_Tomcat_8\hotswap-agent.jar=autoHotswap=true
                                 Info:
     Database Script Is Attached To Project Inside The 'Other Sources' Folder
     

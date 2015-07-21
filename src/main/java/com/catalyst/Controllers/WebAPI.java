@@ -23,7 +23,7 @@ public class WebAPI
     UserService userService;
     
     // This Method Handles Improper/Unhandled Requests
-    @RequestMapping(value = { "/API/Client", "/API/Patient" }, method = RequestMethod.GET)
+    @RequestMapping(value = { "/API", "/API/Client", "/API/Patient" }, method = RequestMethod.GET)
     public String getAPIInJSON_Bad()
     {
         return "Bad Input Yo";
